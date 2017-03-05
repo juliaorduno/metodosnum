@@ -5,13 +5,13 @@
 using namespace std;
 
 double f(double x){
-    double ans = pow(tan(x),-1)-0.3;
+    double ans = 2*pow(x,3)-11.7*pow(x,2)+17.7*x-5;
 
     return ans;
 }
 
 double fprime(double x){
-    double ans = 1/(pow(x,2)+1);
+    double ans = 6*pow(x,2)-23.4*x+17.7;
     return ans;
 }
 

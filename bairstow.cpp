@@ -117,7 +117,7 @@ void bairstow() {
 			cuadratica(r, s);
 			return;
 		}
-		else if (n == 2) {
+		else{
 			roots.push(-(a[1] / a[0]));
 			return;
 		}

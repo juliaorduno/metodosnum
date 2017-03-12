@@ -10,7 +10,7 @@ for p=1:1:rX-1
     end;
 end
 
-//Sustitución hacia adelante
+//Sustitución hacia atrás
 x=[]
 x(rX) = X(rX,cX)/X(rX,cX-1);
 for i=rX-1:-1:1

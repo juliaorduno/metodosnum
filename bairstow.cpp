@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//El usuario modifica los valores y tamaño del array a
+//El usuario modifica los valores y tamaÃ±o del array a
 float a[4] = {0.7f, -4.0f, 6.2f, -2.0f};
 int n = sizeof(a)/sizeof(a[0]);
 
@@ -20,17 +20,17 @@ float* b = new float[n];
 float error = 1;
 float error_r, error_s;
 
-//Las raíces que se van encontrando se van guardando en un stack
+//Las raÃ­ces que se van encontrando se van guardando en un stack
 stack <float> roots;
 
-//Para calcular las raíces de una función cuadrática
+//Para calcular las raÃ­ces de una funciÃ³n cuadrÃ¡tica
 void cuadratica(float r, float s) {
 	float formula = sqrt(pow(r, 2) + 4 * s);
 	roots.push((r + formula) / 2);
 	roots.push((r - formula) / 2);
 }
 
-//calcular la determinante, se usa en el método de cramer
+//calcular la determinante, se usa en el mÃ©todo de cramer
 float determinant(float a00, float a01, float a10, float a11) {
 	return a00*a11 - a10*a01;
 }
@@ -75,19 +75,19 @@ void division_sintetica(float r, float s) {
 void bairstow() {
 	division_sintetica(r, s);
 
-	//Son valores establecidos por el método de bairstow para aplicarlos en el método de cramer
+	//Son valores establecidos por el mÃ©todo de bairstow para aplicarlos en el mÃ©todo de cramer
 	float c2, c3, c1, b1, b0;
 
 	//Sistema de ecuaciones:
-	//c2*DELTAr + c3*DELTAs = –b1
-	//c1*DELTAr + c2*DELTAs = –b0
+	//c2*DELTAr + c3*DELTAs = â€“b1
+	//c1*DELTAr + c2*DELTAs = â€“b0
 	c2 = c[(n-1) - 2];
 	c3 = c[(n-1) - 3];
 	c1 = c[(n-1) - 1];
 	b1 = b[n - 2];
 	b0 = b[n - 1];
 
-	//Cramer sirve para encontrar las incógnitas del sistema de ecuaciones
+	//Cramer sirve para encontrar las incÃ³gnitas del sistema de ecuaciones
 	float *deltas = cramer(c2, c3, c1, c2, -b1, -b0);
 
 	//Modificar r y s, calcular errores iterativos porcentuales hasta que ambos sean menor al error estimado
@@ -101,7 +101,7 @@ void bairstow() {
 		bairstow();
 	}
 
-	//Calcular las raíces dependiendo del grado de la función restante
+	//Calcular las raÃ­ces dependiendo del grado de la funciÃ³n restante
 	else {
 		cuadratica(r, s);
 
@@ -113,14 +113,11 @@ void bairstow() {
 		if (n >= 4) {
 			bairstow();
 		}
-		else if (n == 4) {
-			bairstow();
-		}
 		else if (n == 3) {
 			cuadratica(r, s);
 			return;
 		}
-		else if (n == 2) {
+		else{
 			roots.push(-(a[1] / a[0]));
 			return;
 		}

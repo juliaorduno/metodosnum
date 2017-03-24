@@ -8,7 +8,7 @@
 using namespace std;
 
 //El usuario modifica los valores y tamaño del array a
-float a[4] = { 0.7f, -4.0f, 6.2f, -2.0f };
+float a[5] = { 1.0f, -3.0f, 5.0f, -1.0f, -10.0f };
 int n = sizeof(a) / sizeof(a[0]);
 
 //Los valores r y s son aleatorios
@@ -87,12 +87,10 @@ void bairstow() {
 	b1 = b[n - 2];
 	b0 = b[n - 1];
 
-	cout << "c2 = " << c2 << "c3 = " << c3 << "c1 = " << c1 << "b1 = " << b1 << "b0 = " << b0 << endl;
 	//Cramer sirve para encontrar las incógnitas del sistema de ecuaciones
 	float *deltas = cramer(c2, c3, c1, c2, -b1, -b0);
 
 	//Modificar r y s, calcular errores iterativos porcentuales hasta que ambos sean menor al error estimado
-	cout << "deltar = " << deltas[0] << " deltas =  " << deltas[1] << endl;
 	r = r + deltas[0];
 	s = s + deltas[1];
 
@@ -105,7 +103,6 @@ void bairstow() {
 
 	//Calcular las raíces dependiendo del grado de la función restante
 	else {
-		cout << "r= " << r << "s= " << s << endl;
 		cuadratica(r, s);
 
 		n = n - 2;
@@ -139,4 +136,3 @@ int main()
 
 	return 0;
 }
-

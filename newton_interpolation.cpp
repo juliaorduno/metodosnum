@@ -46,9 +46,9 @@ void calculate_error(double real, double aprox) {
 int main()
 {
 	setprecision(6);
-	n = 3;
-	double fx[] = { 8, 14, 15};
-	double x[] = {2, 2.5, 3.2};
+	n = 4;
+	double fx[] = {6,19,99,291};
+	double x[] = {2,3,5,7};
 	b = new double[n];
 
 	newton(fx, x, n);
@@ -57,10 +57,11 @@ int main()
 		cout << "b" << i << "= " << b[i] << endl;
 	}
 
-	double toEvaluate = 2.8;
+	double toEvaluate = 4;
 
-	double answer = evaluate(toEvaluate, fx, x, 3);
-	cout << "Evaluando en " << 2.8<< "= " << answer << endl;
+	double answer = evaluate(toEvaluate, fx, x, n);
+	cout << "Evaluating in x= " << toEvaluate<< endl;
+	cout << "Answer= " << answer << endl;
 
 
     return 0;
